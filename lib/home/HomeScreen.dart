@@ -43,15 +43,14 @@ class _HomescreenState extends State<Homescreen> {
                 BottomNavigationBarItem(
                     label: AppLocalizations.of(context)!.hadeth,
                     icon:
-                        ImageIcon(AssetImage('assets/images/quraan_icon.png'))),
+                        ImageIcon(AssetImage('assets/images/hadeth_icon.png'))),
                 BottomNavigationBarItem(
                     label: AppLocalizations.of(context)!.sebha,
                     icon:
-                        ImageIcon(AssetImage('assets/images/quraan_icon.png'))),
+                        ImageIcon(AssetImage('assets/images/sebha_icon.png'))),
                 BottomNavigationBarItem(
                     label: AppLocalizations.of(context)!.radio,
-                    icon:
-                        ImageIcon(AssetImage('assets/images/quraan_icon.png')))
+                    icon: ImageIcon(AssetImage('assets/images/radio_icon.png')))
               ],
             ),
           ),

@@ -142,6 +142,7 @@ class QuraanTab extends StatelessWidget {
           color: AppColors.light_primary_color,
         ),
         Expanded(
+          flex: 2,
           child: ListView.separated(
               separatorBuilder: (context, index) {
                 return Divider(

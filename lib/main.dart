@@ -1,4 +1,5 @@
 import 'package:eslami_app/MyAppTheme.dart';
+import 'package:eslami_app/hadeth/HadethDetails.dart';
 import 'package:eslami_app/home/HomeScreen.dart';
 import 'package:eslami_app/quraan/SuraDetails.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       initialRoute: Homescreen.screenRoute,
       routes: {
         Homescreen.screenRoute: (context) => Homescreen(),
-        SuraDetails.screenRoute: (context) => SuraDetails()
+        SuraDetails.screenRoute: (context) => SuraDetails(),
+        HadethDetails.screenRoute: (context) => HadethDetails()
       },
       theme: MyAppTheme.lightMode,
     );
