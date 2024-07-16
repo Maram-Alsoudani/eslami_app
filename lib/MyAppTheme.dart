@@ -15,5 +15,20 @@ class MyAppTheme {
           elevation: 0),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
           selectedItemColor: AppColors.black,
-          unselectedItemColor: AppColors.white));
+          unselectedItemColor: AppColors.white),
+      textTheme: TextTheme(
+          bodyMedium: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.w600,
+              color: AppColors.black),
+          bodySmall: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w400,
+            color: AppColors.black,
+          ),
+          titleLarge: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w400,
+            color: AppColors.black,
+          )));
 }

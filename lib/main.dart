@@ -1,5 +1,6 @@
 import 'package:eslami_app/MyAppTheme.dart';
 import 'package:eslami_app/home/HomeScreen.dart';
+import 'package:eslami_app/quraan/SuraDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -16,7 +17,10 @@ class MyApp extends StatelessWidget {
       locale: Locale('en'),
       debugShowCheckedModeBanner: false,
       initialRoute: Homescreen.screenRoute,
-      routes: {Homescreen.screenRoute: (context) => Homescreen()},
+      routes: {
+        Homescreen.screenRoute: (context) => Homescreen(),
+        SuraDetails.screenRoute: (context) => SuraDetails()
+      },
       theme: MyAppTheme.lightMode,
     );
   }
