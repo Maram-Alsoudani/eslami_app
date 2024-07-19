@@ -2,6 +2,9 @@ import 'package:eslami_app/AppColors.dart';
 import 'package:eslami_app/quraan/ItemSuraName.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/AppConfigProvider.dart';
 
 class QuraanTab extends StatelessWidget {
   static const String screenRoute = 'quraan_tab';
@@ -124,6 +127,8 @@ class QuraanTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
+
     return Column(
       children: [
         Expanded(
@@ -131,7 +136,9 @@ class QuraanTab extends StatelessWidget {
                 Image(image: AssetImage('assets/images/quraan_tab_logo.png'))),
         Divider(
           thickness: 3,
-          color: AppColors.light_primary_color,
+          color: provider.appTheme == ThemeMode.light
+              ? AppColors.light_primary_color
+              : AppColors.yellow,
         ),
         Text(
           AppLocalizations.of(context)!.sura_name,
@@ -139,15 +146,19 @@ class QuraanTab extends StatelessWidget {
         ),
         Divider(
           thickness: 3,
-          color: AppColors.light_primary_color,
+          color: provider.appTheme == ThemeMode.light
+              ? AppColors.light_primary_color
+              : AppColors.yellow,
         ),
         Expanded(
           flex: 2,
           child: ListView.separated(
               separatorBuilder: (context, index) {
                 return Divider(
-                  color: AppColors.light_primary_color,
                   thickness: 1,
+                  color: provider.appTheme == ThemeMode.light
+                      ? AppColors.light_primary_color
+                      : AppColors.yellow,
                 );
               },
               itemCount: suraNames.length,
