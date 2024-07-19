@@ -2,7 +2,9 @@ import 'package:eslami_app/AppColors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
+import '../providers/AppConfigProvider.dart';
 import 'HadethTab.dart';
 import 'ItemHadethDetails.dart';
 
@@ -25,10 +27,14 @@ class _HadethDetailsState extends State<HadethDetails> {
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as Hadeth;
+    var provider = Provider.of<AppConfigProvider>(context);
 
     return Stack(
       children: [
-        Image(image: AssetImage('assets/images/main_background.png')),
+        Image(
+            image: provider.appTheme == ThemeMode.light
+                ? AssetImage('assets/images/main_background.png')
+                : AssetImage('assets/images/main_background_dark.png')),
         Scaffold(
           appBar: AppBar(
             title: Text(AppLocalizations.of(context)!.app_title),
@@ -38,7 +44,9 @@ class _HadethDetailsState extends State<HadethDetails> {
             width: 354,
             height: 652,
             decoration: BoxDecoration(
-                color: AppColors.white,
+                color: provider.appTheme == ThemeMode.light
+                    ? AppColors.white
+                    : AppColors.dark_primary_color,
                 borderRadius: BorderRadius.circular(25)),
             child: Padding(
               padding: const EdgeInsets.all(20),
@@ -46,8 +54,11 @@ class _HadethDetailsState extends State<HadethDetails> {
                 children: [
                   Text(
                     args.title,
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: provider.appTheme == ThemeMode.light
+                                ? AppColors.black
+                                : AppColors.yellow,
+                          )),
                   Divider(
                     thickness: 1,
                     color: AppColors.light_primary_color,

@@ -1,12 +1,14 @@
 import 'package:eslami_app/hadeth/ItemHadethName.dart';
+import 'package:eslami_app/providers/AppConfigProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 import '../AppColors.dart';
 
 class HadethTab extends StatefulWidget {
-  static const String screenRoute = 'quraan_tab';
+  static const String screenRoute = 'hadeth_tab';
 
   @override
   State<HadethTab> createState() => _HadethTabState();
@@ -17,6 +19,7 @@ class _HadethTabState extends State<HadethTab> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     load_hadeth_file();
     return Column(
       children: [
@@ -25,7 +28,9 @@ class _HadethTabState extends State<HadethTab> {
                 Image(image: AssetImage('assets/images/hadith_tab_logo.png'))),
         Divider(
           thickness: 3,
-          color: AppColors.light_primary_color,
+          color: provider.appTheme == ThemeMode.light
+              ? AppColors.light_primary_color
+              : AppColors.yellow,
         ),
         Text(
           AppLocalizations.of(context)!.hadeth_name,
@@ -33,14 +38,18 @@ class _HadethTabState extends State<HadethTab> {
         ),
         Divider(
           thickness: 3,
-          color: AppColors.light_primary_color,
+          color: provider.appTheme == ThemeMode.light
+              ? AppColors.light_primary_color
+              : AppColors.yellow,
         ),
         Expanded(
           flex: 2,
           child: ListView.separated(
               separatorBuilder: (context, index) {
                 return Divider(
-                  color: AppColors.light_primary_color,
+                  color: provider.appTheme == ThemeMode.light
+                      ? AppColors.light_primary_color
+                      : AppColors.yellow,
                   thickness: 1,
                 );
               },

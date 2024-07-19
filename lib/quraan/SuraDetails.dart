@@ -3,6 +3,9 @@ import 'package:eslami_app/quraan/ItemSuraDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/AppConfigProvider.dart';
 
 class SuraDetails extends StatefulWidget {
   static const screenRoute = 'sura_details';
@@ -25,13 +28,18 @@ class _SuraDetailsState extends State<SuraDetails> {
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as SuraDetailsArgs;
+    var provider = Provider.of<AppConfigProvider>(context);
+
     if (verses.isEmpty) {
       loadFile(args.index);
     }
 
     return Stack(
       children: [
-        Image(image: AssetImage('assets/images/main_background.png')),
+        Image(
+            image: provider.appTheme == ThemeMode.light
+                ? AssetImage('assets/images/main_background.png')
+                : AssetImage('assets/images/main_background_dark.png')),
         Scaffold(
           appBar: AppBar(
             title: Text(AppLocalizations.of(context)!.app_title),
@@ -39,14 +47,18 @@ class _SuraDetailsState extends State<SuraDetails> {
           body: verses.isEmpty
               ? Center(
                   child: CircularProgressIndicator(
-                  color: AppColors.light_primary_color,
+                  color: provider.appTheme == ThemeMode.light
+                      ? AppColors.light_primary_color
+                      : AppColors.yellow,
                 ))
               : Container(
                   margin: EdgeInsets.only(bottom: 98, right: 29, left: 29),
                   width: 354,
                   height: 652,
                   decoration: BoxDecoration(
-                      color: AppColors.white,
+                      color: provider.appTheme == ThemeMode.light
+                          ? AppColors.white
+                          : AppColors.dark_primary_color,
                       borderRadius: BorderRadius.circular(25)),
                   child: Padding(
                     padding: const EdgeInsets.all(20),
@@ -54,7 +66,13 @@ class _SuraDetailsState extends State<SuraDetails> {
                       children: [
                         Text(
                           args.name,
-                          style: Theme.of(context).textTheme.bodyMedium,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(
+                                  color: provider.appTheme == ThemeMode.light
+                                      ? AppColors.black
+                                      : AppColors.yellow),
                         ),
                         Divider(
                           thickness: 1,
