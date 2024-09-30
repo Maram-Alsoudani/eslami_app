@@ -1,16 +1,41 @@
-# eslami_app
+# ESLami App
 
-A new Flutter project.
+A **Flutter-based mobile application** designed to provide users with Islamic content, including Quranic verses, Ahadeth, Tasbeh, and radio, all with an engaging and user-friendly interface.
 
-## Getting Started
+## Key Features
 
-This project is a starting point for a Flutter application.
+- **Quranic Verses**: Access to verses from the Quran.
+- **Ahadeth**: Collection of sayings and actions of the Prophet Muhammad (PBUH).
+- **Tasbeh**: A digital prayer bead feature for spiritual practice.
+- **Audio Streaming**: Stream Islamic audio content, including radio.
 
-A few resources to get you started if this is your first Flutter project:
+## Technologies Used
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **File Handling**: Manage local files for offline access.
+- **Audio Streaming**: Seamless streaming of radio and other audio content.
+- **Localization**: Support for multiple languages to reach a broader audience.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Packages Used
+
+- **flutter_localizations**: SDK for localization.
+- **intl**: Internationalization and localization support.
+- **cupertino_icons**: iOS-style icons.
+- **flutter_native_splash**: Native splash screen handler.
+- **provider**: State management.
+
+## Setup Instructions
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Maram-Alsoudani/eslami_app.git
+2. Navigate to the project directory:
+   ```bash
+   cd eslami_app
+3. Install the dependencies:
+   ```bash
+   flutter pub get
+4. Run the app:
+   ```bash
+   flutter run
+
+
